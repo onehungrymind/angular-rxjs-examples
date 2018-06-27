@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { AngularFireModule } from 'angularfire2';
 import * as firebase from 'firebase';
@@ -95,7 +95,7 @@ import { MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatSidena
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpModule,
     MatButtonModule,
     MatCardModule,
     MatIconModule,

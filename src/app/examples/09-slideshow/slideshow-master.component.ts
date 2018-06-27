@@ -29,10 +29,10 @@ export class SlideshowMasterComponent implements OnInit {
     const remoteRef = this.db.object('slideshow/');
 
     const previous$ = fromEvent(this.getNativeElement(this.previous), 'click')
-      .pipe(map(event =>({shift: -1, direction: 'right'})));
+      .pipe(map(event => ({shift: -1, direction: 'right'})));
 
     const next$ = fromEvent(this.getNativeElement(this.next), 'click')
-      .pipe(map(event =>({shift: +1, direction: 'left'})));
+      .pipe(map(event => ({shift: +1, direction: 'left'})));
 
     merge(previous$, next$)
       .pipe(

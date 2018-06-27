@@ -3,8 +3,8 @@ import { fromEvent } from 'rxjs';
 import { map, scan, startWith } from 'rxjs/operators';
 
 interface Coordinate {
-  x: number,
-  y: number
+  x: number;
+  y: number;
 }
 
 @Component({

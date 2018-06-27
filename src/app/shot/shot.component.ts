@@ -16,7 +16,7 @@ import 'gsap';
   `]
 })
 
-export class ShotComponent implements OnInit{
+export class ShotComponent implements OnInit {
   @ViewChild('shot') shot;
   @Output() remove: EventEmitter<any> = new EventEmitter();
 

@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { ModuleWithProviders } from "@angular/core";
+import { ModuleWithProviders } from '@angular/core';
 import {
   BasicSequenceComponent,
   MaintainingStateComponent,

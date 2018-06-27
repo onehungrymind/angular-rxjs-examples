@@ -31,6 +31,6 @@ export class AnimationComponent implements OnInit {
           };
         })
       )
-      .subscribe(circle => this.circles = [...this.circles, circle])
+      .subscribe(circle => this.circles = [...this.circles, circle]);
   }
 }

@@ -39,7 +39,7 @@ export class SliderMasterComponent implements OnInit {
 
     const remoteRef = this.db.object('slider/');
 
-    let valueStream = this.myForm.valueChanges
+    const valueStream = this.myForm.valueChanges
       .pipe(
         map(val => {
           return {
@@ -53,8 +53,7 @@ export class SliderMasterComponent implements OnInit {
           if (oldVal.min !== newVal.min && newVal.min > newVal.max) {
             isValid = false;
             (<FormControl>this.myForm.controls['max']).setValue(newVal.min);
-          }
-          else if (oldVal.max !== newVal.max && newVal.max < newVal.min) {
+          } else if (oldVal.max !== newVal.max && newVal.max < newVal.min) {
             isValid = false;
             (<FormControl>this.myForm.controls['min']).setValue(newVal.max);
           }
@@ -62,7 +61,7 @@ export class SliderMasterComponent implements OnInit {
         }),
         map(([oldVal, newVal]) => newVal),
         tap(vals => remoteRef.update(vals))
-      )
+      );
 
     this.minValue = valueStream
       .pipe(

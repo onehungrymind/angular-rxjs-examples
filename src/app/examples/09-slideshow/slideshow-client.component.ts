@@ -9,10 +9,10 @@ import { animate, style, transition, trigger } from '@angular/animations';
   template: `
     <div class="slide-wrapper">
       <div *ngFor="let image of images; let i = index">
-        <div 
+        <div
           class="slide"
           *ngIf="i === currentIndex"
-          [@imageChange]="currentDirection" 
+          [@imageChange]="currentDirection"
           [style.background-image]="'url(' + image + ')'"
         ></div>
       </div>
@@ -23,7 +23,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
       height: 50vw;
       max-height: 500px;
     }
-    
+
     .slide {
       background-size: cover;
       background-position: 50%;
@@ -57,8 +57,8 @@ import { animate, style, transition, trigger } from '@angular/animations';
 export class SlideshowClientComponent implements OnInit {
   position: any;
   images: any[] = images;
-  currentIndex: number = 0;
-  currentDirection: string = 'left';
+  currentIndex = 0;
+  currentDirection = 'left';
 
   constructor(private db: AngularFireDatabase) {}
 

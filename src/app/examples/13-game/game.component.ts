@@ -32,8 +32,8 @@ import { repeat, startWith, take } from 'rxjs/operators';
   </div>
   `
 })
-export class GameComponent implements OnInit{
-  backgroundPosition: number = 0;
+export class GameComponent implements OnInit {
+  backgroundPosition = 0;
   ngOnInit() {
     interval(10)
       .pipe(

@@ -27,6 +27,6 @@ export class SimpleAnimationComponent implements OnInit {
           };
         })
       )
-      .subscribe(props => TweenMax.to(this.ball.nativeElement, 1, props))
+      .subscribe(props => TweenMax.to(this.ball.nativeElement, 1, props));
   }
 }

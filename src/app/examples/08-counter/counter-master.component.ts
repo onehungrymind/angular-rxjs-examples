@@ -4,7 +4,7 @@ import { scan, startWith } from 'rxjs/operators';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 interface Ticker {
-  ticker: number
+  ticker: number;
 }
 
 @Component({
@@ -24,7 +24,7 @@ export class CounterMasterComponent implements OnInit {
     fromEvent(this.getNativeElement(this.btn), 'click')
       .pipe(
         startWith({ticker: 0}),
-        scan((acc: Ticker, curr) => { return { ticker: acc.ticker + 1 }; })
+        scan((acc: Ticker, curr) => ({ ticker: acc.ticker + 1 }))
       )
       .subscribe(event => remoteRef.update(event));
   }

@@ -29,10 +29,10 @@ export class SlideshowMasterComponent implements OnInit {
     const remoteRef = this.db.object('slideshow/');
 
     const previous$ = fromEvent(this.getNativeElement(this.previous), 'click')
-      .pipe(map(event => {return {shift: -1, direction: 'right'}}));
+      .pipe(map(event =>({shift: -1, direction: 'right'})));
 
     const next$ = fromEvent(this.getNativeElement(this.next), 'click')
-      .pipe(map(event => {return {shift: +1, direction: 'left'}}));
+      .pipe(map(event =>({shift: +1, direction: 'left'})));
 
     merge(previous$, next$)
       .pipe(
@@ -40,7 +40,7 @@ export class SlideshowMasterComponent implements OnInit {
         scan((acc, curr) => {
           const projectedIndex = acc.index + curr.shift;
 
-          let adjustedIndex = projectedIndex < 0 ? this.images.length - 1
+          const adjustedIndex = projectedIndex < 0 ? this.images.length - 1
             : projectedIndex >= this.images.length ? 0
               : projectedIndex;
 

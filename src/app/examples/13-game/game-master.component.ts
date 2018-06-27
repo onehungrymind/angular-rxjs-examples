@@ -47,7 +47,7 @@ export class GameMasterComponent implements OnInit {
     shots$
       .subscribe(shots => {
         if (shots.length && this.shots.length < shots.length) {
-          this.shots.push(shots[shots.length - 1])
+          this.shots.push(shots[shots.length - 1]);
         } else {
           this.shots.shift();
         }

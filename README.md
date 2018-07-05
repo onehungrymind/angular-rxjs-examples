@@ -1,5 +1,20 @@
 # AngularRxjsExamples
 
+![rxjs-example](src/assets/rxjs-example.png)
+
+## Prerequisites
+
+* You will need to have NodeJS and NPM installed from [nodejs.org](https://nodejs.org)
+* You will need a Google account (generally associated with Gmail)
+
+## Getting Started
+
+```
+git clone https://github.com/onehungrymind/angular-rxjs-examples.git
+cd angular-rxjs-examples
+npm start
+```
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 
 ## Development server

@@ -15,7 +15,7 @@ import {
   MapComponent,
   AnnotateComponent,
   GameComponent,
-  SliderComponent
+  SliderComponent, WaitForStreamComponent
 } from './examples';
 import { CombiningStreamsComponent } from './examples/16-combining-streams/combining-streams.component';
 
@@ -40,6 +40,7 @@ const appRoutes: Routes = [
   { path: 'examples/12-annotate', component: AnnotateComponent },
   { path: 'examples/13-game', component: GameComponent },
   { path: 'examples/14-slider', component: SliderComponent },
+  { path: 'examples/15-wait-for-stream', component: WaitForStreamComponent },
   { path: 'examples/16-combining-streams', component: CombiningStreamsComponent }
 ];
 

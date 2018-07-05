@@ -44,14 +44,21 @@ import {
   GameMasterComponent,
   SliderComponent,
   SliderClientComponent,
-  SliderMasterComponent
+  SliderMasterComponent,
+  WaitForStreamComponent,
+  CombiningStreamsComponent
 } from './examples';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
-import { CombiningStreamsComponent } from './examples/16-combining-streams/combining-streams.component';
-import { JsonpModule } from '@angular/http';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatIconModule, MatInputModule,
+  MatListModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -90,6 +97,7 @@ import { JsonpModule } from '@angular/http';
     SliderComponent,
     SliderClientComponent,
     SliderMasterComponent,
+    WaitForStreamComponent,
     CombiningStreamsComponent
   ],
   imports: [
@@ -105,7 +113,7 @@ import { JsonpModule } from '@angular/http';
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
-    HttpClientJsonpModule,
+    MatInputModule,
     routing
   ],
   providers: [

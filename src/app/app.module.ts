@@ -44,12 +44,21 @@ import {
   GameMasterComponent,
   SliderComponent,
   SliderClientComponent,
-  SliderMasterComponent
+  SliderMasterComponent,
+  WaitForStreamComponent
 } from './examples';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatIconModule, MatInputModule,
+  MatListModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -87,7 +96,8 @@ import { MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatSidena
     GameMasterComponent,
     SliderComponent,
     SliderClientComponent,
-    SliderMasterComponent
+    SliderMasterComponent,
+    WaitForStreamComponent
   ],
   imports: [
     BrowserModule,
@@ -102,6 +112,8 @@ import { MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatSidena
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatSelectModule,
+    MatInputModule,
     routing
   ],
   providers: [

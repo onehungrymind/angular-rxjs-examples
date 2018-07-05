@@ -35,3 +35,5 @@ export { GameMasterComponent } from './13-game/game-master.component';
 export { SliderComponent } from './14-slider/slider.component';
 export { SliderClientComponent } from './14-slider/slider-client.component';
 export { SliderMasterComponent } from './14-slider/slider-master.component';
+
+export { WaitForStreamComponent } from './15-wait-for-stream/wait-for-stream.component';

@@ -22,6 +22,7 @@ export class AppComponent {
     { path: '/examples/11-map', name: 'Map'},
     { path: '/examples/12-annotate', name: 'Annotate'},
     { path: '/examples/13-game', name: 'Game'},
-    { path: '/examples/14-slider', name: 'Slider'}
+    { path: '/examples/14-slider', name: 'Slider'},
+    { path: '/examples/15-wait-for-stream', name: 'Wait for Stream'}
   ];
 }

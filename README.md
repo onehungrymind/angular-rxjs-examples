@@ -5,13 +5,13 @@
 ## Prerequisites
 
 * You will need to have NodeJS and NPM installed from [nodejs.org](https://nodejs.org)
-* You will need a Google account (generally associated with Gmail)
 
 ## Getting Started
 
 ```
 git clone https://github.com/onehungrymind/angular-rxjs-examples.git
 cd angular-rxjs-examples
+npm i
 npm start
 ```
 

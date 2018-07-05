@@ -45,7 +45,8 @@ import {
   SliderComponent,
   SliderClientComponent,
   SliderMasterComponent,
-  WaitForStreamComponent
+  WaitForStreamComponent,
+  CombiningStreamsComponent
 } from './examples';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
@@ -96,7 +97,8 @@ import {
     SliderComponent,
     SliderClientComponent,
     SliderMasterComponent,
-    WaitForStreamComponent
+    WaitForStreamComponent,
+    CombiningStreamsComponent
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,7 @@ import {
   GameComponent,
   SliderComponent
 } from './examples';
+import { CombiningStreamsComponent } from './examples/16-combining-streams/combining-streams.component';
 
 const appRoutes: Routes = [
   {
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
   { path: 'examples/11-map', component: MapComponent },
   { path: 'examples/12-annotate', component: AnnotateComponent },
   { path: 'examples/13-game', component: GameComponent },
-  { path: 'examples/14-slider', component: SliderComponent }
+  { path: 'examples/14-slider', component: SliderComponent },
+  { path: 'examples/16-combining-streams', component: CombiningStreamsComponent }
 ];
 
 export const appRoutingProviders: any[] = [];

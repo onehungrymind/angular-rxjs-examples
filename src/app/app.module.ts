@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from 'angularfire2';
 import * as firebase from 'firebase';
@@ -50,6 +50,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { CombiningStreamsComponent } from './examples/16-combining-streams/combining-streams.component';
+import { JsonpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -87,7 +89,8 @@ import { MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatSidena
     GameMasterComponent,
     SliderComponent,
     SliderClientComponent,
-    SliderMasterComponent
+    SliderMasterComponent,
+    CombiningStreamsComponent
   ],
   imports: [
     BrowserModule,
@@ -102,6 +105,7 @@ import { MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatSidena
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
+    HttpClientJsonpModule,
     routing
   ],
   providers: [

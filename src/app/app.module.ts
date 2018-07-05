@@ -55,7 +55,6 @@ import {
   MatCardModule,
   MatIconModule, MatInputModule,
   MatListModule,
-  MatSelectModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -112,7 +111,6 @@ import {
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatSelectModule,
     MatInputModule,
     routing
   ],

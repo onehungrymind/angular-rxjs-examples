@@ -1,6 +1,6 @@
 # Angular RxJS Examples
 
-![rxjs-example](src/assets/readme-screenshot.png)
+<p align="center"><img src="src/assets/readme-screenshot.png" alt="RxJS Examples App"/></p>
 
 ## Prerequisites
 

@@ -1,6 +1,6 @@
-# AngularRxjsExamples
+# Angular RxJS Examples
 
-![rxjs-example](src/assets/rxjs-example.png)
+![rxjs-example](src/assets/readme-screenshot.png)
 
 ## Prerequisites
 

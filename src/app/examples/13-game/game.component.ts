@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
-import { repeat, startWith, take } from 'rxjs/operators';
+import { fromEvent, interval } from 'rxjs';
+import { map, repeat, startWith, take } from 'rxjs/operators';
+import * as $ from "jquery";
+
+const SPACESHIP_OFFSET = 40,
+  SHOT_OFFSET = 2;
 
 @Component({
   selector: 'app-game',
@@ -24,16 +28,23 @@ import { repeat, startWith, take } from 'rxjs/operators';
   template: `
   <div class="card-container">
       <mat-card [style.background-position-y]="backgroundPosition + 'px'">
-        <app-game-master></app-game-master>
-      </mat-card>
-      <mat-card [style.background-position-y]="backgroundPosition + 'px'">
-        <app-game-client></app-game-client>
+        <div #spaceship class="spaceship"
+             [style.left]="spaceshipPosition.x + 'px'"
+             [style.top]="spaceshipPosition.y + 'px'">
+        </div>
+        <app-shot *ngFor="let shot of shots"
+                  [style.left]="shot?.x + 'px'"
+                  [style.top]="shot?.y + 'px'"
+        ></app-shot>
       </mat-card>
   </div>
   `
 })
 export class GameComponent implements OnInit {
   backgroundPosition = 0;
+  spaceshipPosition: any = {};
+  shots: any[] = [];
+
   ngOnInit() {
     interval(10)
       .pipe(
@@ -42,5 +53,25 @@ export class GameComponent implements OnInit {
         repeat()
       )
       .subscribe(count => this.backgroundPosition = count);
+
+    fromEvent(document, 'click')
+      .pipe(map(this.parseEvent))
+      .subscribe(shot => {
+        this.shots.push(shot);
+      });
+
+    fromEvent(document, 'mousemove')
+      .pipe(map(this.parseEvent))
+      .subscribe(event => this.spaceshipPosition = event);
+  }
+
+  parseEvent(event) {
+    const offset = $(event.target).offset(),
+      typeOfOffsetLeft = event.type === 'click' ? SHOT_OFFSET : SPACESHIP_OFFSET;
+
+    return {
+      x: event.clientX - offset.left - typeOfOffsetLeft,
+      y: event.clientY - offset.top - SPACESHIP_OFFSET
+    };
   }
 }

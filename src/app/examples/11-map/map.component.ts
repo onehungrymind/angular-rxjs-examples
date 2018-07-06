@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { map, pairwise, startWith } from 'rxjs/operators';
+import { fromEvent } from 'rxjs/index';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-map',
@@ -23,12 +26,36 @@ import { Component } from '@angular/core';
   template: `
     <div class="card-container">
         <mat-card>
-          <app-map-master></app-map-master>
-        </mat-card>
-        <mat-card>
-            <app-map-client></app-map-client>
+          <app-line *ngFor="let line of lines" [line]="line"></app-line>
         </mat-card>
     </div>
     `
 })
-export class MapComponent { }
+export class MapComponent implements OnInit {
+  lines: any[] = [];
+
+  constructor() {}
+
+  ngOnInit() {
+    const emptyLine: any = { x1: 0, y1: 0, x2: 0, y2: 0 };
+
+    fromEvent(document, 'click')
+      .pipe(
+        map((event: MouseEvent) => {
+          const offset = $(event.target).offset();
+          return {
+            x: event.clientX - offset.left,
+            y: event.clientY - offset.top
+          };
+        }),
+        pairwise(),
+        map(positions => {
+          const p1 = positions[0];
+          const p2 = positions[1];
+          return { x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y };
+        }),
+        startWith(emptyLine)
+      )
+      .subscribe(line => this.lines = [...this.lines, line]);
+  }
+}

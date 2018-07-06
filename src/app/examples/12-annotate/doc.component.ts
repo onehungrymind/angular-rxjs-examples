@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
     }
   `],
   template: `
-    <h1>RXJS + Firebase FTW!</h1>
+    <h1>RXJS FTW!</h1>
     <p>Aenean vitae pharetra magna. Curabitur lacinia dignissim fringilla. Donec vel ligula ac orci congue lobortis eget et lectus.
     Donec elit quam, vestibulum et elit in, iaculis tempus nulla. </p>
     <hr>

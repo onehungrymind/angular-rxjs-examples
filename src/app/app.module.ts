@@ -3,9 +3,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AngularFireModule } from 'angularfire2';
-import * as firebase from 'firebase';
-import { firebaseConfig } from './firebase.conf';
 
 import { AppComponent } from './app.component';
 import { routing, appRoutingProviders } from './app.routing';
@@ -24,32 +21,16 @@ import {
   SimpleAnimationComponent,
   AnimationComponent,
   CounterComponent,
-  CounterClientComponent,
-  CounterMasterComponent,
   SlideshowComponent,
-  SlideshowClientComponent,
-  SlideshowMasterComponent,
   LocationComponent,
-  LocationClientComponent,
-  LocationMasterComponent,
   MapComponent,
-  MapClientComponent,
-  MapMasterComponent,
   AnnotateComponent,
-  AnnotateClientComponent,
-  AnnotateMasterComponent,
   DocComponent,
   GameComponent,
-  GameClientComponent,
-  GameMasterComponent,
   SliderComponent,
-  SliderClientComponent,
-  SliderMasterComponent,
   WaitForStreamComponent,
   CombiningStreamsComponent
 } from './examples';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
@@ -76,35 +57,19 @@ import {
     SimpleAnimationComponent,
     AnimationComponent,
     CounterComponent,
-    CounterClientComponent,
-    CounterMasterComponent,
     SlideshowComponent,
-    SlideshowClientComponent,
-    SlideshowMasterComponent,
     LocationComponent,
-    LocationClientComponent,
-    LocationMasterComponent,
     MapComponent,
-    MapClientComponent,
-    MapMasterComponent,
     AnnotateComponent,
-    AnnotateClientComponent,
-    AnnotateMasterComponent,
     DocComponent,
     GameComponent,
-    GameClientComponent,
-    GameMasterComponent,
     SliderComponent,
-    SliderClientComponent,
-    SliderMasterComponent,
     WaitForStreamComponent,
     CombiningStreamsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
     ReactiveFormsModule,
     HttpClientModule,
     MatButtonModule,

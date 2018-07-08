@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { fromEvent, merge, Observable } from 'rxjs';
+import { fromEvent, merge } from 'rxjs';
 import { filter, mapTo, scan, startWith } from 'rxjs/operators';
 
 @Component({

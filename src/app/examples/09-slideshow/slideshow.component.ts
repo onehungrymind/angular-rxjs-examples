@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { fromEvent, merge } from 'rxjs/index';
+import { fromEvent, merge } from 'rxjs';
 import { map, scan, startWith } from 'rxjs/operators';
 import { slideshowAnimation } from './slideshow.animations';
 
@@ -18,12 +18,13 @@ const images: string[] = [
 export class SlideshowComponent implements OnInit {
   @ViewChild('previous') previous;
   @ViewChild('next') next;
+
   images: any[] = images;
-  position: any;
   currentIndex = 0;
   currentDirection = 'left';
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
     const previous$ = fromEvent(this.getNativeElement(this.previous), 'click')
@@ -37,10 +38,8 @@ export class SlideshowComponent implements OnInit {
         startWith({index: 0} as any),
         scan((acc, curr) => {
           const projectedIndex = acc.index + curr.shift;
-
-          const adjustedIndex = projectedIndex < 0 ? this.images.length - 1
-            : projectedIndex >= this.images.length ? 0
-              : projectedIndex;
+          const length = this.images.length;
+          const adjustedIndex = this.adjustForMinIndex(length, this.adjustForMaxIndex(length, projectedIndex));
 
           return {index: adjustedIndex, direction: curr.direction};
         })
@@ -49,6 +48,14 @@ export class SlideshowComponent implements OnInit {
         this.currentIndex = event.index;
         this.currentDirection = event.direction;
       });
+  }
+
+  adjustForMinIndex(length, index) {
+    return index < 0 ? length - 1 : index;
+  }
+
+  adjustForMaxIndex(length, index) {
+    return index >= length ? 0 : index;
   }
 
   getNativeElement(element) {

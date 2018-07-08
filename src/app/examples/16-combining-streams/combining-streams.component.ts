@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnimalService } from './animal.service';
-import { forkJoin } from 'rxjs/index';
-import { tap } from 'rxjs/internal/operators';
+import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -22,9 +22,11 @@ import { DomSanitizer } from '@angular/platform-browser';
       display: flex;
       align-items: center;
     }
+
     img {
       max-width: 500px;
     }
+
     img:not(:first-child) {
       margin-left: 15px;
     }
@@ -35,18 +37,26 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class CombiningStreamsComponent implements OnInit {
   dog;
   cat;
+  dog$;
+  cat$;
 
-  constructor(private animalService: AnimalService, private sanitizer: DomSanitizer) {}
+  constructor(private animalService: AnimalService, private sanitizer: DomSanitizer) {
+  }
 
   ngOnInit() {
+    this.dog$ = this.animalService.getDog();
+    this.cat$ = this.animalService.getCat()
+      .pipe(
+        map(cat => this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(cat)))
+      );
   }
 
   randomize() {
-    forkJoin(this.animalService.getDog(), this.animalService.getCat())
-      .pipe(tap(([dog, cat]) => {
+    forkJoin(this.dog$, this.cat$)
+      .subscribe(([dog, cat]) => {
         this.dog = dog;
-        this.cat = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(cat));
-      })).subscribe();
+        this.cat = cat;
+      });
   }
 
   isVideo(dog) {

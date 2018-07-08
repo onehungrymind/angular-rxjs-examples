@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { fromEvent } from 'rxjs';
 import { map, pairwise, startWith } from 'rxjs/operators';
-import { fromEvent } from 'rxjs/index';
-import * as $ from "jquery";
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-map',
@@ -13,6 +13,7 @@ import * as $ from "jquery";
       background: #fff url(assets/london-map.jpg) no-repeat center center;
       padding: 0;
     }
+
     .card-container {
       display: flex;
       flex-flow: row wrap;
@@ -22,22 +23,23 @@ import * as $ from "jquery";
       left: 0;
       right: 0;
     }
-    `],
+  `],
   template: `
     <div class="card-container">
-        <mat-card>
-          <app-line *ngFor="let line of lines" [line]="line"></app-line>
-        </mat-card>
+      <mat-card>
+        <app-line *ngFor="let line of lines" [line]="line"></app-line>
+      </mat-card>
     </div>
-    `
+  `
 })
 export class MapComponent implements OnInit {
   lines: any[] = [];
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
-    const emptyLine: any = { x1: 0, y1: 0, x2: 0, y2: 0 };
+    const emptyLine: any = {x1: 0, y1: 0, x2: 0, y2: 0};
 
     fromEvent(document, 'click')
       .pipe(
@@ -52,7 +54,7 @@ export class MapComponent implements OnInit {
         map(positions => {
           const p1 = positions[0];
           const p2 = positions[1];
-          return { x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y };
+          return {x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y};
         }),
         startWith(emptyLine)
       )

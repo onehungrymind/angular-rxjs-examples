@@ -6,10 +6,10 @@ import * as $ from 'jquery';
 @Component({
   selector: 'app-triggers',
   template: `
-  <div #ball class="ball"
-    [style.left]="position.x + 'px'"
-    [style.top]="position.y + 'px'">
-  </div>
+    <div #ball class="ball"
+         [style.left]="position.x + 'px'"
+         [style.top]="position.y + 'px'">
+    </div>
   `
 })
 export class TriggersComponent implements OnInit {
@@ -37,9 +37,9 @@ export class TriggersComponent implements OnInit {
       .pipe(tap(event => this.ball.nativeElement.style.pointerEvents = 'all'));
 
     down$.pipe(
-      switchMap(event => move$.pipe(takeUntil(up$))),
-      startWith({ x: 100, y: 100})
-    )
+        switchMap(event => move$.pipe(takeUntil(up$))),
+        startWith({x: 100, y: 100})
+      )
       .subscribe(position => this.position = position);
   }
 }

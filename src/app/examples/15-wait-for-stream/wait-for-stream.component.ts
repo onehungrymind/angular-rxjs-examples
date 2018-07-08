@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BooksService } from './books.service';
 import { MatButton } from '@angular/material';
-import { fromEvent } from 'rxjs/index';
+import { fromEvent } from 'rxjs';
 import { exhaustMap, tap } from 'rxjs/internal/operators';
 import { FormControl } from '@angular/forms';
 
@@ -48,13 +48,12 @@ export class WaitForStreamComponent implements OnInit {
   ngOnInit() {
     fromEvent(this.getNativeElement(this.search), 'click')
       .pipe(
-        exhaustMap(event => this.booksService.search(this.searchControl.value)),
-        tap((response: any) => this.books = response.docs)
-      ).subscribe();
+        exhaustMap(event => this.booksService.search(this.searchControl.value))
+      )
+      .subscribe((response: any) => this.books = response.docs);
   }
 
   getNativeElement(element) {
     return element._elementRef.nativeElement;
   }
-
 }

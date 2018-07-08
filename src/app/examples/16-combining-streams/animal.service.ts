@@ -4,7 +4,8 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class AnimalService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getDog() {
     return this.http.get(`https://random.dog/woof.json`);

@@ -3,7 +3,8 @@ import 'gsap';
 
 @Component({
   selector: 'app-shot',
-  template: `<div #shot class="shot"></div>`,
+  template: `
+    <div #shot class="shot"></div>`,
   styles: [`
     .shot {
       pointer-events: none;
@@ -21,8 +22,10 @@ export class ShotComponent implements OnInit {
   @Output() remove: EventEmitter<any> = new EventEmitter();
 
   ngOnInit() {
-    TweenMax.to(this.shot.nativeElement, 2, {top: -1000, onComplete: () => {
-      this.remove.emit();
-    }});
+    TweenMax.to(this.shot.nativeElement, 2, {
+      top: -1000, onComplete: () => {
+        this.remove.emit();
+      }
+    });
   }
 }

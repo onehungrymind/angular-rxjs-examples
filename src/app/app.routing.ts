@@ -15,9 +15,10 @@ import {
   MapComponent,
   AnnotateComponent,
   GameComponent,
-  SliderComponent, WaitForStreamComponent
+  SliderComponent,
+  WaitForStreamComponent,
+  CombiningStreamsComponent
 } from './examples';
-import { CombiningStreamsComponent } from './examples/16-combining-streams/combining-streams.component';
 
 const appRoutes: Routes = [
   {

@@ -15,4 +15,4 @@ export const slideshowAnimation = trigger('imageChange', [
   transition('right => void', [
     animate('300ms ease-in-out', style({transform: 'translateX(100vw)'}))
   ])
-])
+]);

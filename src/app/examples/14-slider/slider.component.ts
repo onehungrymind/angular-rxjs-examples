@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { filter, map, pairwise, startWith } from 'rxjs/operators';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs/index';
 
 @Component({
   selector: 'app-slider',
   styles: [`
-  mat-card {
-    width: 400px;
-    box-sizing: border-box;
-    margin: 16px;
-  }
-  .card-container {
-    display: flex;
-    flex-flow: row wrap;
-  }
+    mat-card {
+      width: 400px;
+      box-sizing: border-box;
+      margin: 16px;
+    }
+
+    .card-container {
+      display: flex;
+      flex-flow: row wrap;
+    }
   `],
   template: `
-  <div class="card-container">
+    <div class="card-container">
       <mat-card>
         <h1>Min/Max Selector</h1>
         <form [formGroup]="myForm">
@@ -27,7 +28,7 @@ import { Observable } from 'rxjs/index';
           <p>max - {{maxValue | async}}</p>
         </form>
       </mat-card>
-  </div>
+    </div>
   `
 })
 export class SliderComponent implements OnInit {
@@ -40,7 +41,8 @@ export class SliderComponent implements OnInit {
   startMax = 55;
   step = 1;
 
-  constructor (private builder: FormBuilder) {}
+  constructor(private builder: FormBuilder) {
+  }
 
   ngOnInit() {
     this.myForm = this.builder.group({

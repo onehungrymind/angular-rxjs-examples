@@ -5,10 +5,12 @@ mat-card {
   margin: 16px;
   overflow: hidden;
 }
-mat-card{
+
+mat-card {
   display: flex;
   justify-content: space-between;
 }
+
 .slide-wrapper {
   height: 50vw;
   max-height: 500px;

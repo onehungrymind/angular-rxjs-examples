@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { fromEvent } from 'rxjs';
-import { map, mergeMap, pairwise, takeUntil } from 'rxjs/operators';
+import { map, switchMap, pairwise, takeUntil } from 'rxjs/operators';
 import * as $ from 'jquery';
 
 @Component({
@@ -36,31 +36,29 @@ export class AnnotateComponent implements OnInit {
   }
 
   ngOnInit() {
-    const mouseDown$ = fromEvent(document, 'mousedown');
-    const mouseMove$ = fromEvent(document, 'mousemove');
-    const mouseUp$ = fromEvent(document, 'mouseup');
+    // -------------------------------------------------------------------
+    // CHALLENGE: Annotate over the document
+    // -------------------------------------------------------------------
+    // Create the streams needed to draw a line
+    // Sequence them appropriately
+    // Hints have been given to help keep you focused
+    // -------------------------------------------------------------------
 
-    mouseDown$
-      .pipe(
-        mergeMap(event => mouseMove$
-          .pipe(
-            map((e: MouseEvent) => {
-              const offset = $(e.target).offset();
-              return {
-                x: e.clientX - offset.left,
-                y: e.pageY - offset.top
-              };
-            }),
-            pairwise(),
-            takeUntil(mouseUp$)
-          )
-        ),
-        map(positions => {
-          const p1 = positions[0];
-          const p2 = positions[1];
-          return {x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y};
-        }),
-      )
-      .subscribe(line => this.lines = [...this.lines, line]);
+    // HINT 01: This will save you some heavy lifting
+    // map((e: MouseEvent) => {
+    //   const offset = $(e.target).offset();
+    //   return {
+    //     x: e.clientX - offset.left,
+    //     y: e.pageY - offset.top
+    //   };
+    // }),
+    // pairwise(),
+
+    // HINT 02: This will save you some heavy lifting
+    // map(positions => {
+    //   const p1 = positions[0];
+    //   const p2 = positions[1];
+    //   return {x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y};
+    // })
   }
 }

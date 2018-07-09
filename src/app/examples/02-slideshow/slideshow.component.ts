@@ -27,27 +27,19 @@ export class SlideshowComponent implements OnInit {
   }
 
   ngOnInit() {
-    const previous$ = fromEvent(this.getNativeElement(this.previous), 'click')
-      .pipe(map(event => ({shift: -1, direction: 'right'})));
+    // -------------------------------------------------------------------
+    // CHALLENGE: Get the Slideshow Working
+    // -------------------------------------------------------------------
+    // Create a previous$ stream to capture the previous button click
+    // Create a next$ stream to capture the next button click
+    // Pass an object that looks like this {shift: -1, direction: 'right'}
+    // Combine both streams to update the same slideshow
+    // -------------------------------------------------------------------
 
-    const next$ = fromEvent(this.getNativeElement(this.next), 'click')
-      .pipe(map(event => ({shift: +1, direction: 'left'})));
-
-    merge(previous$, next$)
-      .pipe(
-        startWith({index: 0} as any),
-        scan((acc, curr) => {
-          const projectedIndex = acc.index + curr.shift;
-          const length = this.images.length;
-          const adjustedIndex = this.adjustForMinIndex(length, this.adjustForMaxIndex(length, projectedIndex));
-
-          return {index: adjustedIndex, direction: curr.direction};
-        })
-      )
-      .subscribe(event => {
-        this.currentIndex = event.index;
-        this.currentDirection = event.direction;
-      });
+    // HINT: This will save you some heavy lifting
+    // const projectedIndex = acc.index + curr.shift;
+    // const length = this.images.length;
+    // const adjustedIndex = this.adjustForMinIndex(length, this.adjustForMaxIndex(length, projectedIndex));
   }
 
   adjustForMinIndex(length, index) {

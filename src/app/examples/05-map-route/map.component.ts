@@ -39,22 +39,30 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
-    fromEvent(document, 'click')
-      .pipe(
-        map((event: MouseEvent) => {
-          const offset = $(event.target).offset();
-          return {
-            x: event.clientX - offset.left,
-            y: event.clientY - offset.top
-          };
-        }),
-        pairwise(),
-        map(positions => {
-          const p1 = positions[0];
-          const p2 = positions[1];
-          return {x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y};
-        }),
-      )
-      .subscribe(line => this.lines = [...this.lines, line]);
+    // -------------------------------------------------------------------
+    // CHALLENGE: Map your route / Map your getaway
+    // -------------------------------------------------------------------
+    // Create the stream needed to click to draw a straight line
+    // Process the stream appropriately
+    // Update the stream to accommodate fluid lines
+    // Hints have been given to help keep you focused
+    // -------------------------------------------------------------------
+
+    // HINT 01: This will save you some heavy lifting
+    // map((event: MouseEvent) => {
+    //   const offset = $(event.target).offset();
+    //   return {
+    //     x: event.clientX - offset.left,
+    //     y: event.clientY - offset.top
+    //   };
+    // }),
+    // pairwise(),
+
+    // HINT 02: This will save you some heavy lifting
+    // map(positions => {
+    //   const p1 = positions[0];
+    //   const p2 = positions[1];
+    //   return {x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y};
+    // })
   }
 }

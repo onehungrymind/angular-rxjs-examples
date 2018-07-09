@@ -47,16 +47,12 @@ export class LocationComponent implements OnInit {
     const PIN_OFFSET_X = 50;
     const PIN_OFFSET_Y = 75;
 
-    fromEvent(document, 'click')
-      .pipe(
-        map((event: MouseEvent) => {
-          const offset = $(event.target).offset();
-          return {
-            x: event.clientX - offset.left - PIN_OFFSET_X,
-            y: event.clientY - offset.top - PIN_OFFSET_Y
-          };
-        })
-      )
-      .subscribe(props => TweenMax.to(this.pin.nativeElement, 1, props));
+    // -------------------------------------------------------------------
+    // CHALLENGE: Share your location
+    // -------------------------------------------------------------------
+    // Create the stream that captures your click coordinates
+    // Process the stream appropriately
+    // At the end of the stream, animate the pin to your location
+    // -------------------------------------------------------------------
   }
 }

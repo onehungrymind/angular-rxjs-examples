@@ -22,12 +22,6 @@ import { SalesNumbersService } from '../../shared/services';
         <h3>Buy: {{ minValue | currency}}</h3>
         <h3>Sell: {{ maxValue | currency}}</h3>
       </mat-card>
-
-      <mat-card *ngIf="numbers$ | async as numbers">
-        <h1>Sales Numbers</h1>
-        <h3>Buy: {{ numbers.min | currency}}</h3>
-        <h3>Sell: {{ numbers.max | currency}}</h3>
-      </mat-card>
     </div>
   `
 })
@@ -37,14 +31,10 @@ export class SalesWidgetComponent implements OnInit {
   maxValue;
 
   constructor(private salesNumbers: SalesNumbersService) {
-    this.numbers$ = salesNumbers.numbers$;
   }
 
   ngOnInit() {
-    this.salesNumbers.numbers$
-      .subscribe(({min, max}) => {
-        this.minValue = min;
-        this.maxValue = max;
-      });
+    // SOMETHING GOES HERE!
+    // BONUS: Convert the template to use the async pipe
   }
 }

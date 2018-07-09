@@ -64,7 +64,7 @@ export class SliderComponent implements OnInit {
         pairwise(),
         filter(([oldVal, newVal]) => this.filterMinMaxValues(oldVal, newVal)),
         map(([oldVal, newVal]) => newVal),
-        tap(values => this.salesNumbers.dispatch(values))
+        // SOMETHING GOES HERE!
       );
 
     this.minValue = valueStream

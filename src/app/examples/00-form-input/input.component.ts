@@ -23,13 +23,17 @@ export class InputComponent implements OnInit {
   queryString;
 
   ngOnInit() {
-    this.searchControl
-      .valueChanges
-      .pipe(
-        map(query => query.toUpperCase())
-      )
-      .subscribe(query => {
-        this.queryString = query;
-      });
+    // -------------------------------------------------------------------
+    // CHALLENGE: Own that Input!
+    // -------------------------------------------------------------------
+    // Capture the searchControl output and input it into queryString
+    // Map the output to all uppercase letters
+    // Reverse the output i.e. Lukas becomes sakuL
+    // BONUS: How would you URL encode the output?
+    // -------------------------------------------------------------------
+
+    // HINT: This emits an observable
+    // this.searchControl
+    //   .valueChanges
   }
 }

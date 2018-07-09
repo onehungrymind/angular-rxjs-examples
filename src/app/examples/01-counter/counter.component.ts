@@ -45,12 +45,11 @@ export class CounterComponent implements OnInit {
   }
 
   ngOnInit() {
-    fromEvent(this.getNativeElement(this.btn), 'click')
-      .pipe(
-        startWith({ticker: 0}),
-        scan((acc: Ticker, curr) => ({ticker: acc.ticker + 1}))
-      )
-      .subscribe(result => this.count = result.ticker);
+    // -------------------------------------------------------------------
+    // CHALLENGE: Go Beast Mode By 1!
+    // -------------------------------------------------------------------
+    // Capture the btn click and increment count by 1
+    // -------------------------------------------------------------------
   }
 
   getNativeElement(element) {

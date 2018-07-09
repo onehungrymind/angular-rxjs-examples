@@ -5,10 +5,10 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class SalesNumbersService {
-  private subject = new Subject();
-  numbers$ = this.subject.asObservable();
-
-  dispatch(numbers) {
-    this.subject.next(numbers);
-  }
+  // -------------------------------------------------------------------
+  // CHALLENGE: Share Your Sales Numbers
+  // -------------------------------------------------------------------
+  // Implement an event stream that you can control to share data
+  // Share data as it comes in
+  // -------------------------------------------------------------------
 }

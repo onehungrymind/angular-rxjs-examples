@@ -21,9 +21,7 @@ import {
   MapComponent,
   AnnotateComponent,
   GameComponent,
-  SliderComponent,
-  WaitForStreamComponent,
-  CombiningStreamsComponent
+  SliderComponent
 } from './examples';
 
 const appRoutes: Routes = [
@@ -46,12 +44,10 @@ const appRoutes: Routes = [
   {path: 'examples/01-counter', component: CounterComponent},
   {path: 'examples/02-slideshow', component: SlideshowComponent},
   {path: 'examples/03-spaceship-game', component: GameComponent},
-  {path: 'examples/04-location', component: LocationComponent},
+  {path: 'examples/04-annotate', component: AnnotateComponent},
   {path: 'examples/05-map-route', component: MapComponent},
-  {path: 'examples/05-annotate', component: AnnotateComponent},
-  {path: 'examples/08-slider', component: SliderComponent},
-  {path: 'examples/15-wait-for-stream', component: WaitForStreamComponent},
-  {path: 'examples/16-combining-streams', component: CombiningStreamsComponent}
+  {path: 'examples/06-location', component: LocationComponent},
+  {path: 'examples/08-slider', component: SliderComponent}
 ];
 
 export const appRoutingProviders: any[] = [];

@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs';
-import { map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import * as $ from 'jquery';
+import 'gsap';
 
 @Component({
   selector: 'app-location',
@@ -18,7 +19,8 @@ import * as $ from 'jquery';
       width: 100%;
       box-sizing: border-box;
       margin: 16px;
-      background: #fff url(assets/london-map.jpg) no-repeat center center;
+      background: #fff url(assets/london-map.jpg);
+      background-size: cover;
     }
 
     .card-container {
@@ -29,9 +31,7 @@ import * as $ from 'jquery';
   template: `
     <div class="card-container">
       <mat-card>
-        <div #pin class="pin"
-             [style.left]="position.x + 'px'"
-             [style.top]="position.y + 'px'">
+        <div #pin class="pin">
         </div>
       </mat-card>
     </div>
@@ -39,16 +39,15 @@ import * as $ from 'jquery';
 })
 export class LocationComponent implements OnInit {
   @ViewChild('pin') pin;
-  position: any;
 
   constructor() {
   }
 
   ngOnInit() {
-    const PIN_OFFSET_X = 26;
-    const PIN_OFFSET_Y = 16;
+    const PIN_OFFSET_X = 50;
+    const PIN_OFFSET_Y = 75;
 
-    const move$ = fromEvent(document, 'mousemove')
+    fromEvent(document, 'click')
       .pipe(
         map((event: MouseEvent) => {
           const offset = $(event.target).offset();
@@ -57,19 +56,7 @@ export class LocationComponent implements OnInit {
             y: event.clientY - offset.top - PIN_OFFSET_Y
           };
         })
-      );
-
-    const down$ = fromEvent(this.pin.nativeElement, 'mousedown')
-      .pipe(tap(event => this.pin.nativeElement.style.pointerEvents = 'none'));
-
-    const up$ = fromEvent(document, 'mouseup')
-      .pipe(tap(event => this.pin.nativeElement.style.pointerEvents = 'all'));
-
-    down$
-      .pipe(
-        switchMap(event => move$.pipe(takeUntil(up$))),
-        startWith({x: window.innerWidth / 2, y: 100})
       )
-      .subscribe(result => this.position = result);
+      .subscribe(props => TweenMax.to(this.pin.nativeElement, 1, props));
   }
 }

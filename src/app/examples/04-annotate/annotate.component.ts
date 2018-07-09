@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { map, pairwise, startWith } from 'rxjs/operators';
-import { fromEvent } from 'rxjs/index';
+import { fromEvent } from 'rxjs';
+import { map, mergeMap, pairwise, takeUntil } from 'rxjs/operators';
 import * as $ from 'jquery';
 
 @Component({
@@ -36,25 +36,30 @@ export class AnnotateComponent implements OnInit {
   }
 
   ngOnInit() {
-    const emptyLine: any = {x1: 0, y1: 0, x2: 0, y2: 0};
+    const mouseDown$ = fromEvent(document, 'mousedown');
+    const mouseMove$ = fromEvent(document, 'mousemove');
+    const mouseUp$ = fromEvent(document, 'mouseup');
 
-    fromEvent(document, 'mousemove')
+    mouseDown$
       .pipe(
-        map((event: MouseEvent) => {
-          const offset = $(event.target).offset();
-
-          return {
-            x: event.clientX - offset.left,
-            y: event.clientY - offset.top
-          };
-        }),
-        pairwise(),
+        mergeMap(event => mouseMove$
+          .pipe(
+            map((e: MouseEvent) => {
+              const offset = $(e.target).offset();
+              return {
+                x: e.clientX - offset.left,
+                y: e.pageY - offset.top
+              };
+            }),
+            pairwise(),
+            takeUntil(mouseUp$)
+          )
+        ),
         map(positions => {
           const p1 = positions[0];
           const p2 = positions[1];
           return {x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y};
         }),
-        startWith(emptyLine)
       )
       .subscribe(line => this.lines = [...this.lines, line]);
   }

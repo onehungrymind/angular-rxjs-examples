@@ -10,8 +10,8 @@ import * as $ from 'jquery';
       width: 100%;
       box-sizing: border-box;
       margin: 16px;
-      background: #fff url(assets/london-map.jpg) no-repeat center center;
-      padding: 0;
+      background: #fff url(assets/london-map.jpg);
+      background-size: cover;
     }
 
     .card-container {
@@ -39,8 +39,6 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
-    const emptyLine: any = {x1: 0, y1: 0, x2: 0, y2: 0};
-
     fromEvent(document, 'click')
       .pipe(
         map((event: MouseEvent) => {
@@ -56,7 +54,6 @@ export class MapComponent implements OnInit {
           const p2 = positions[1];
           return {x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y};
         }),
-        startWith(emptyLine)
       )
       .subscribe(line => this.lines = [...this.lines, line]);
   }

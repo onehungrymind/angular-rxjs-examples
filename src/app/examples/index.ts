@@ -1,12 +1,10 @@
 export { InputComponent } from './00-form-input/input.component';
 export { CounterComponent } from './01-counter/counter.component';
 export { SlideshowComponent } from './02-slideshow/slideshow.component';
-export { LocationComponent } from './04-location/location.component';
+export { LocationComponent } from './06-location/location.component';
 export { MapComponent } from './05-map-route/map.component';
-export { AnnotateComponent } from './05-annotate/annotate.component';
-export { DocComponent } from './05-annotate/doc.component';
+export { AnnotateComponent } from './04-annotate/annotate.component';
+export { DocComponent } from './04-annotate/doc.component';
 export { GameComponent } from './03-spaceship-game/game.component';
 export { SliderComponent } from './08-slider/slider.component';
 export { SalesWidgetComponent} from './08-slider/sales-widget.component';
-export { WaitForStreamComponent } from './15-wait-for-stream/wait-for-stream.component';
-export { CombiningStreamsComponent } from './16-combining-streams/combining-streams.component';

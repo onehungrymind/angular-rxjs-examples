@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { MatButton } from '@angular/material';
 import { fromEvent } from 'rxjs';
 import { exhaustMap } from 'rxjs/internal/operators';
-import { BooksService } from '../../shared/services/';
+import { BooksService } from '../../shared/services/index';
 
 @Component({
   selector: 'app-wait-for-stream',

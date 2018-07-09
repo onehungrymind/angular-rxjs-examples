@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { AnimalService } from '../../shared/services/';
+import { AnimalService } from '../../shared/services/index';
 import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 

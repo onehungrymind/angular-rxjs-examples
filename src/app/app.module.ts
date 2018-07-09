@@ -52,9 +52,7 @@ import {
   DocComponent,
   GameComponent,
   SliderComponent,
-  SalesWidgetComponent,
-  WaitForStreamComponent,
-  CombiningStreamsComponent
+  SalesWidgetComponent
 } from './examples';
 
 @NgModule({
@@ -83,8 +81,6 @@ import {
     GameComponent,
     SliderComponent,
     SalesWidgetComponent,
-    WaitForStreamComponent,
-    CombiningStreamsComponent,
     EventCommunicationComponent
   ],
   imports: [

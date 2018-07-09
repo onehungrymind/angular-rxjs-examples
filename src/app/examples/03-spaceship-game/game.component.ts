@@ -93,8 +93,6 @@ export class GameComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.background$.unsubscribe();
     this.shots$.unsubscribe();
-    this.leftArrow$.unsubscribe();
-    this.rightArrow$.unsubscribe();
   }
 
   increment(obj, prop, value) {

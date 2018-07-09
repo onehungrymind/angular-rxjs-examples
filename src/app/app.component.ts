@@ -24,12 +24,10 @@ export class AppComponent implements OnInit {
     {path: '/examples/01-counter', name: 'Counter'},
     {path: '/examples/02-slideshow', name: 'Slideshow'},
     {path: '/examples/03-spaceship-game', name: 'Spaceship Game'},
-    {path: '/examples/04-location', name: 'Location'},
+    {path: '/examples/06-location', name: 'Location'},
     {path: '/examples/05-map-route', name: 'Map Route'},
-    {path: '/examples/05-annotate', name: 'Annotate'},
-    {path: '/examples/08-slider', name: 'Slider'},
-    // {path: '/examples/15-wait-for-stream', name: 'Wait for Stream'},
-    // {path: '/examples/16-combining-streams', name: 'Combining Streams'}
+    {path: '/examples/04-annotate', name: 'Annotate'},
+    {path: '/examples/08-slider', name: 'Slider'}
   ];
 
   constructor(private snackbar: MatSnackBar, private ns: NotificationService) {

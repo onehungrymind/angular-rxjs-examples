@@ -16,7 +16,7 @@ export class StreamOriginComponent implements OnInit {
   ngOnInit() {
     const emptyLine: any = { x1: 0, y1: 0, x2: 0, y2: 0 };
 
-    // Observable.fromEvent(document, 'mousemove')
+    // fromEvent(document, 'mousemove')
     fromEvent(document, 'click')
       .pipe(
         map((event: MouseEvent) => {

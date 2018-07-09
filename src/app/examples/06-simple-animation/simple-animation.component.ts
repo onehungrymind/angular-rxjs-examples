@@ -10,7 +10,6 @@ import { map } from 'rxjs/operators';
   template: `<div #ball class="ball"></div>`
 })
 export class SimpleAnimationComponent implements OnInit {
-
   @ViewChild('ball') ball;
 
   ngOnInit() {

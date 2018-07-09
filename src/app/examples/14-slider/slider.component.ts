@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+
 import { Observable } from 'rxjs';
 import { filter, map, pairwise, startWith } from 'rxjs/operators';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-slider',

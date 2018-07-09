@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { fromEvent, interval, merge } from 'rxjs';
-import { filter, map, mapTo, repeat, scan, startWith, take, tap } from 'rxjs/operators';
-import * as $ from 'jquery';
+import { filter, map, mapTo, repeat, scan, startWith, take } from 'rxjs/operators';
 
 const SPACESHIP_WIDTH_OFFSET = 40;
 const SPACESHIP_HEIGHT_OFFSET = 100;

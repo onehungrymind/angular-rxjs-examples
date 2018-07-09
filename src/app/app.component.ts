@@ -24,9 +24,9 @@ export class AppComponent implements OnInit {
     {path: '/examples/01-counter', name: 'Counter'},
     {path: '/examples/02-slideshow', name: 'Slideshow'},
     {path: '/examples/03-spaceship-game', name: 'Spaceship Game'},
-    {path: '/examples/06-location', name: 'Location'},
-    {path: '/examples/05-map-route', name: 'Map Route'},
     {path: '/examples/04-annotate', name: 'Annotate'},
+    {path: '/examples/05-map-route', name: 'Map Route'},
+    {path: '/examples/06-location', name: 'Location'},
     {path: '/examples/08-slider', name: 'Slider'}
   ];
 

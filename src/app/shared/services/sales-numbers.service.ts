@@ -4,11 +4,11 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class NotificationService {
+export class SalesNumbersService {
   private subject = new Subject();
-  notifications$ = this.subject.asObservable();
+  numbers$ = this.subject.asObservable();
 
-  dispatch(notification) {
-    this.subject.next(notification);
+  dispatch(numbers) {
+    this.subject.next(numbers);
   }
 }

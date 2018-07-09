@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 import { Observable } from 'rxjs';
-import { filter, map, pairwise, startWith } from 'rxjs/operators';
+import { filter, map, pairwise, startWith, tap } from 'rxjs/operators';
+import { SalesNumbersService } from '../../shared/services';
 
 @Component({
   selector: 'app-slider',
@@ -21,14 +22,15 @@ import { filter, map, pairwise, startWith } from 'rxjs/operators';
   template: `
     <div class="card-container">
       <mat-card>
-        <h1>Min/Max Selector</h1>
+        <h1>Sales Strategy</h1>
         <form [formGroup]="myForm">
           <input type="range" formControlName="min" [min]="min" [max]="max" [step]="step">
-          <p>min - {{minValue | async}}</p>
+          <p>Buy at {{minValue | async | currency}}</p>
           <input type="range" formControlName="max" [min]="min" [max]="max" [step]="step">
-          <p>max - {{maxValue | async}}</p>
+          <p>Sell at {{maxValue | async | currency}}</p>
         </form>
       </mat-card>
+      <app-sales-widget></app-sales-widget>
     </div>
   `
 })
@@ -42,7 +44,7 @@ export class SliderComponent implements OnInit {
   startMax = 55;
   step = 1;
 
-  constructor(private builder: FormBuilder) {
+  constructor(private builder: FormBuilder, private salesNumbers: SalesNumbersService) {
   }
 
   ngOnInit() {
@@ -60,18 +62,9 @@ export class SliderComponent implements OnInit {
           };
         }),
         pairwise(),
-        filter(([oldVal, newVal]) => {
-          let isValid = true;
-          if (oldVal.min !== newVal.min && newVal.min > newVal.max) {
-            isValid = false;
-            (<FormControl>this.myForm.controls['max']).setValue(newVal.min);
-          } else if (oldVal.max !== newVal.max && newVal.max < newVal.min) {
-            isValid = false;
-            (<FormControl>this.myForm.controls['min']).setValue(newVal.max);
-          }
-          return isValid;
-        }),
-        map(([oldVal, newVal]) => newVal)
+        filter(([oldVal, newVal]) => this.filterMinMaxValues(oldVal, newVal)),
+        map(([oldVal, newVal]) => newVal),
+        tap(values => this.salesNumbers.dispatch(values))
       );
 
     this.minValue = valueStream
@@ -85,5 +78,17 @@ export class SliderComponent implements OnInit {
         map(vals => vals.max),
         startWith(this.startMax)
       );
+  }
+
+  filterMinMaxValues(oldVal, newVal) {
+    let isValid = true;
+    if (oldVal.min !== newVal.min && newVal.min > newVal.max) {
+      isValid = false;
+      (<FormControl>this.myForm.controls['max']).setValue(newVal.min);
+    } else if (oldVal.max !== newVal.max && newVal.max < newVal.min) {
+      isValid = false;
+      (<FormControl>this.myForm.controls['min']).setValue(newVal.max);
+    }
+    return isValid;
   }
 }

@@ -24,7 +24,10 @@ import {
 } from './shared/components';
 
 import {
-  NotificationService
+  AnimalService,
+  BooksService,
+  NotificationService,
+  SalesNumbersService
 } from './shared/services';
 
 import {
@@ -49,6 +52,7 @@ import {
   DocComponent,
   GameComponent,
   SliderComponent,
+  SalesWidgetComponent,
   WaitForStreamComponent,
   CombiningStreamsComponent
 } from './examples';
@@ -78,6 +82,7 @@ import {
     DocComponent,
     GameComponent,
     SliderComponent,
+    SalesWidgetComponent,
     WaitForStreamComponent,
     CombiningStreamsComponent,
     EventCommunicationComponent
@@ -99,7 +104,10 @@ import {
   ],
   providers: [
     appRoutingProviders,
-    NotificationService
+    AnimalService,
+    BooksService,
+    NotificationService,
+    SalesNumbersService
   ],
   bootstrap: [AppComponent]
 })

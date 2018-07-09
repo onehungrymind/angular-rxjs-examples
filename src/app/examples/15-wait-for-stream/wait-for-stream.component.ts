@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { BooksService } from './books.service';
+import { FormControl } from '@angular/forms';
 import { MatButton } from '@angular/material';
 import { fromEvent } from 'rxjs';
-import { exhaustMap, tap } from 'rxjs/internal/operators';
-import { FormControl } from '@angular/forms';
+import { exhaustMap } from 'rxjs/internal/operators';
+import { BooksService } from '../../shared/services/';
 
 @Component({
   selector: 'app-wait-for-stream',
@@ -34,8 +34,7 @@ import { FormControl } from '@angular/forms';
       height: 100%;
       overflow: auto;
     }
-  `],
-  providers: [BooksService]
+  `]
 })
 export class WaitForStreamComponent implements OnInit {
   @ViewChild('search') search: MatButton;

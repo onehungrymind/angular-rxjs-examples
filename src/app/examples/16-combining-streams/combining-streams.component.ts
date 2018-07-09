@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AnimalService } from './animal.service';
+import { DomSanitizer } from '@angular/platform-browser';
+import { AnimalService } from '../../shared/services/';
 import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-combining-streams',
@@ -30,8 +30,7 @@ import { DomSanitizer } from '@angular/platform-browser';
     img:not(:first-child) {
       margin-left: 15px;
     }
-  `],
-  providers: [AnimalService]
+  `]
 })
 
 export class CombiningStreamsComponent implements OnInit {

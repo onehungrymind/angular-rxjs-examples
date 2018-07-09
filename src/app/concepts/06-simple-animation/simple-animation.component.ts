@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { fromEvent } from 'rxjs';
 
 import 'gsap';
 import * as $ from 'jquery';
+
+import { fromEvent } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({

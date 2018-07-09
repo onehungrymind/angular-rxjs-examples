@@ -1,5 +1,16 @@
 <mat-drawer-container fullscreen>
   <mat-drawer #sidenav mode="side" class="app-sidenav">
+    <h3 matSubheader>Concepts</h3>
+    <mat-nav-list>
+      <a mat-list-item
+         [routerLink]="concept.path"
+         routerLinkActive="active"
+         *ngFor="let concept of concepts">
+        <span mat-line>{{concept.name}}</span>
+      </a>
+    </mat-nav-list>
+    <mat-divider></mat-divider>
+    <h3 matSubheader>Examples</h3>
     <mat-nav-list>
       <a mat-list-item
          [routerLink]="example.path"

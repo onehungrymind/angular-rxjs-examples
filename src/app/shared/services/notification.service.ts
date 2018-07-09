@@ -11,7 +11,7 @@ export class NotificationService {
   constructor() {
   }
 
-  emit(notification) {
+  dispatch(notification) {
     this.subject.next(notification);
   }
 }

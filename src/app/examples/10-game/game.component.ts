@@ -3,8 +3,8 @@ import { fromEvent, interval } from 'rxjs';
 import { map, repeat, startWith, take } from 'rxjs/operators';
 import * as $ from 'jquery';
 
-const SPACESHIP_OFFSET = 40,
-  SHOT_OFFSET = 2;
+const SPACESHIP_OFFSET = 40;
+const SHOT_OFFSET = 2;
 
 @Component({
   selector: 'app-game',
@@ -35,8 +35,8 @@ const SPACESHIP_OFFSET = 40,
         </div>
         <app-shot *ngFor="let shot of shots"
                   [style.left]="shot?.x + 'px'"
-                  [style.top]="shot?.y + 'px'"
-        ></app-shot>
+                  [style.top]="shot?.y + 'px'">
+        </app-shot>
       </mat-card>
     </div>
   `

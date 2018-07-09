@@ -45,8 +45,8 @@ export class LocationComponent implements OnInit {
   }
 
   ngOnInit() {
-    const PIN_OFFSET_X = 26,
-      PIN_OFFSET_Y = 16;
+    const PIN_OFFSET_X = 26;
+    const PIN_OFFSET_Y = 16;
 
     const move$ = fromEvent(document, 'mousemove')
       .pipe(

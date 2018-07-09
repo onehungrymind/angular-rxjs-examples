@@ -1,15 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatSidenavModule,
+  MatSnackBarModule,
+  MatToolbarModule
+} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { routing, appRoutingProviders } from './app.routing';
-import { CircleComponent } from './circle/circle.component';
-import { LineComponent } from './line/line.component';
-import { ShotComponent } from './shot/shot.component';
 
+import {
+  CircleComponent,
+  LineComponent,
+  ShotComponent
+} from './shared/components';
+
+import {
+  NotificationService
+} from './shared/services';
 
 import {
   BasicSequenceComponent,
@@ -20,6 +36,11 @@ import {
   StreamOriginComponent,
   SimpleAnimationComponent,
   AnimationComponent,
+  EventCommunicationComponent
+} from './concepts';
+
+import {
+  InputComponent,
   CounterComponent,
   SlideshowComponent,
   LocationComponent,
@@ -31,15 +52,6 @@ import {
   WaitForStreamComponent,
   CombiningStreamsComponent
 } from './examples';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatIconModule, MatInputModule,
-  MatListModule,
-  MatSidenavModule,
-  MatToolbarModule
-} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -47,7 +59,7 @@ import {
     CircleComponent,
     LineComponent,
     ShotComponent,
-    BasicSequenceComponent,
+
     BasicSequenceComponent,
     MaintainingStateComponent,
     MergingStreamsComponent,
@@ -56,6 +68,8 @@ import {
     StreamOriginComponent,
     SimpleAnimationComponent,
     AnimationComponent,
+
+    InputComponent,
     CounterComponent,
     SlideshowComponent,
     LocationComponent,
@@ -65,7 +79,8 @@ import {
     GameComponent,
     SliderComponent,
     WaitForStreamComponent,
-    CombiningStreamsComponent
+    CombiningStreamsComponent,
+    EventCommunicationComponent
   ],
   imports: [
     BrowserModule,
@@ -75,14 +90,16 @@ import {
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    MatInputModule,
     MatListModule,
     MatSidenavModule,
+    MatSnackBarModule,
     MatToolbarModule,
-    MatInputModule,
     routing
   ],
   providers: [
-    appRoutingProviders
+    appRoutingProviders,
+    NotificationService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
+
 import {
   BasicSequenceComponent,
   MaintainingStateComponent,
@@ -9,6 +10,11 @@ import {
   StreamOriginComponent,
   SimpleAnimationComponent,
   AnimationComponent,
+  EventCommunicationComponent
+} from './concepts';
+
+import {
+  InputComponent,
   CounterComponent,
   SlideshowComponent,
   LocationComponent,
@@ -23,26 +29,29 @@ import {
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/examples/00-basic-sequence',
+    redirectTo: '/concepts/00-basic-sequence',
     pathMatch: 'full'
   },
-  { path: 'examples/00-basic-sequence', component: BasicSequenceComponent },
-  { path: 'examples/01-maintaining-state', component: MaintainingStateComponent },
-  { path: 'examples/02-merging-streams', component: MergingStreamsComponent },
-  { path: 'examples/03-map-to-functions', component: MapToFunctionsComponent },
-  { path: 'examples/04-triggers', component: TriggersComponent },
-  { path: 'examples/05-stream-origin', component: StreamOriginComponent },
-  { path: 'examples/06-simple-animation', component: SimpleAnimationComponent },
-  { path: 'examples/07-animation', component: AnimationComponent },
-  { path: 'examples/08-counter', component: CounterComponent },
-  { path: 'examples/09-slideshow', component: SlideshowComponent },
-  { path: 'examples/10-location', component: LocationComponent },
-  { path: 'examples/11-map', component: MapComponent },
-  { path: 'examples/12-annotate', component: AnnotateComponent },
-  { path: 'examples/13-game', component: GameComponent },
-  { path: 'examples/14-slider', component: SliderComponent },
-  { path: 'examples/15-wait-for-stream', component: WaitForStreamComponent },
-  { path: 'examples/16-combining-streams', component: CombiningStreamsComponent }
+  {path: 'concepts/00-basic-sequence', component: BasicSequenceComponent},
+  {path: 'concepts/01-maintaining-state', component: MaintainingStateComponent},
+  {path: 'concepts/02-merging-streams', component: MergingStreamsComponent},
+  {path: 'concepts/03-map-to-functions', component: MapToFunctionsComponent},
+  {path: 'concepts/04-triggers', component: TriggersComponent},
+  {path: 'concepts/05-stream-origin', component: StreamOriginComponent},
+  {path: 'concepts/06-simple-animation', component: SimpleAnimationComponent},
+  {path: 'concepts/07-animation', component: AnimationComponent},
+  {path: 'concepts/08-event-communication', component: EventCommunicationComponent},
+
+  {path: 'examples/00-form-input', component: InputComponent},
+  {path: 'examples/01-counter', component: CounterComponent},
+  {path: 'examples/02-slideshow', component: SlideshowComponent},
+  {path: 'examples/04-location', component: LocationComponent},
+  {path: 'examples/05-map-route', component: MapComponent},
+  {path: 'examples/05-annotate', component: AnnotateComponent},
+  {path: 'examples/10-game', component: GameComponent},
+  {path: 'examples/14-slider', component: SliderComponent},
+  {path: 'examples/15-wait-for-stream', component: WaitForStreamComponent},
+  {path: 'examples/16-combining-streams', component: CombiningStreamsComponent}
 ];
 
 export const appRoutingProviders: any[] = [];

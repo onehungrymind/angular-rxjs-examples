@@ -44,7 +44,7 @@ export class MapToFunctionsComponent implements OnInit {
     merge(leftArrow$, rightArrow$, upArrow$, downArrow$)
       .pipe(
         startWith({x: 100, y: 100}),
-        scan((acc, curr: Function) => curr(acc))
+        scan((acc: any, curr: Function) => curr(acc))
       )
       .subscribe(position => this.position = position);
   }

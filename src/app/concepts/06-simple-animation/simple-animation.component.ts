@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import 'gsap';
+import { TweenMax } from 'gsap';
 import * as $ from 'jquery';
 
 import { fromEvent } from 'rxjs';

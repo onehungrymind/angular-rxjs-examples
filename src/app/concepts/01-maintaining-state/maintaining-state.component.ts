@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map, scan, startWith } from 'rxjs/operators';
 
@@ -19,11 +19,11 @@ interface Coordinate {
     </div>
   `
 })
-export class MaintainingStateComponent implements OnInit {
+export class MaintainingStateComponent implements AfterViewInit {
   @ViewChild('right') right;
-  position: any;
+  position: any = { x: 100, y: 150 };
 
-  ngOnInit() {
+  ngAfterViewInit() {
     fromEvent(this.getNativeElement(this.right), 'click')
       .pipe(
         map(event => 10),

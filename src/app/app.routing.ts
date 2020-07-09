@@ -1,3 +1,4 @@
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 
@@ -50,6 +51,13 @@ const appRoutes: Routes = [
   {path: 'examples/08-slider', component: SliderComponent}
 ];
 
-export const appRoutingProviders: any[] = [];
+// export const appRoutingProviders: any[] = [];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+// export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+
+@NgModule({
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule],
+  declarations: [],
+})
+export class AppRoutingModule { }

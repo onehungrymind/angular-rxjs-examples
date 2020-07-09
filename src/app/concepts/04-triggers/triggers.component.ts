@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import * as $ from 'jquery';
@@ -12,11 +12,11 @@ import * as $ from 'jquery';
     </div>
   `
 })
-export class TriggersComponent implements OnInit {
+export class TriggersComponent implements AfterViewInit {
   @ViewChild('ball') ball;
-  position: any;
+  position: any = { x: 100, y: 100 };
 
-  ngOnInit() {
+  ngAfterViewInit() {
     const BALL_OFFSET = 50;
 
     const move$ = fromEvent(document, 'mousemove')

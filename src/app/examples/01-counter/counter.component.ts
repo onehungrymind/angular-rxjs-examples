@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { fromEvent } from 'rxjs/index';
 import { scan, startWith } from 'rxjs/operators';
 
@@ -37,14 +37,14 @@ interface Ticker {
     </div>
   `
 })
-export class CounterComponent implements OnInit {
+export class CounterComponent implements AfterViewInit {
   @ViewChild('btn') btn;
-  count: number;
+  count = 0;
 
   constructor() {
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     fromEvent(this.getNativeElement(this.btn), 'click')
       .pipe(
         startWith({ticker: 0}),

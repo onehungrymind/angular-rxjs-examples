@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { fromEvent, merge } from 'rxjs';
 import { map, scan, startWith } from 'rxjs/operators';
 
@@ -15,18 +15,18 @@ interface Coordinate {
     <button #right mat-raised-button color="accent">Move Right</button>
     <div class="container">
       <div #ball class="ball"
-           [style.left]="position.x + 'px'"
-           [style.top]="position.y + 'px'">
+           [style.left]="position?.x + 'px'"
+           [style.top]="position?.y + 'px'">
       </div>
     </div>
   `
 })
-export class MergingStreamsComponent implements OnInit {
+export class MergingStreamsComponent implements AfterViewInit {
   @ViewChild('left') left;
   @ViewChild('right') right;
-  position: any;
+  position: any = { x: 200, y: 200 };
 
-  ngOnInit() {
+  ngAfterViewInit() {
     const left$ = fromEvent(this.getNativeElement(this.left), 'click')
       .pipe(map(event => -10));
 

@@ -15,8 +15,8 @@ interface Coordinate {
     <button #right mat-raised-button color="accent">Move Right</button>
     <div class="container">
       <div #ball class="ball"
-           [style.left]="position?.x + 'px'"
-           [style.top]="position?.y + 'px'">
+           [style.left]="position.x + 'px'"
+           [style.top]="position.y + 'px'">
       </div>
     </div>
   `

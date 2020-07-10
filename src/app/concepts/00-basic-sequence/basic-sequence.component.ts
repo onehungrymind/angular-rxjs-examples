@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
@@ -11,11 +11,11 @@ import { map, filter } from 'rxjs/operators';
   </div>
   `
 })
-export class BasicSequenceComponent implements OnInit {
+export class BasicSequenceComponent implements AfterViewInit {
   @ViewChild('btn') btn;
   message: string;
 
-  ngOnInit() {
+  ngAfterViewInit() {
     fromEvent(this.getNativeElement(this.btn), 'click')
       .pipe(
         // filter((event: KeyboardEvent) => event.shiftKey), // Operator stacking

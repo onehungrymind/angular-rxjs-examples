@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { fromEvent, merge } from 'rxjs';
 import { map, scan, startWith } from 'rxjs/operators';
 import { slideshowAnimation } from './slideshow.animations';
@@ -15,7 +15,7 @@ const images: string[] = [
   templateUrl: './slideshow.component.html',
   animations: [slideshowAnimation]
 })
-export class SlideshowComponent implements OnInit {
+export class SlideshowComponent implements AfterViewInit {
   @ViewChild('previous') previous;
   @ViewChild('next') next;
 
@@ -26,7 +26,7 @@ export class SlideshowComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     const previous$ = fromEvent(this.getNativeElement(this.previous), 'click')
       .pipe(map(event => ({shift: -1, direction: 'right'})));
 

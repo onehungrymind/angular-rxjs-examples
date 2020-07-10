@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as $ from 'jquery';
-import 'gsap';
+import { TweenMax } from 'gsap';
 
 @Component({
   selector: 'app-location',

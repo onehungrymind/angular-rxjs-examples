@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatButton } from '@angular/material';
+import { MatButton } from '@angular/material/button';
 import { fromEvent } from 'rxjs';
 import { exhaustMap } from 'rxjs/internal/operators';
 import { BooksService } from '../../shared/services/index';
